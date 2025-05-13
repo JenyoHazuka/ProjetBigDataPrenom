@@ -2,8 +2,8 @@
 import csv
 
 # Entrée/sortie
-input_file = 'dpt2022.csv'           # Le fichier d'origine
-output_file = 'natDpt2022_valid.csv'    # Le fichier de sortie
+input_file = './csv/dpt2022.csv'           # Le fichier d'origine
+output_file = './csv/natDpt2022_valid.csv'    # Le fichier de sortie
 
 def is_valid_row(row):
     # Vérifie qu'il y a exactement 5 champs

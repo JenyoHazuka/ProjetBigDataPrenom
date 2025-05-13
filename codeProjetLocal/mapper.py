@@ -20,7 +20,7 @@ def mapper():
         print("Erreur : en-têtes attendus non trouvés (annais, sexe, preusuel, nombre)", file=sys.stderr)
         sys.exit(1)  # Arrêt du programme avec un code d'erreur
 
-    # Parcours des lignes restantes du fichier CSV
+    # Parcours les lignes du fichier CSV
     for row in reader:
         try:
             # Extraction et nettoyage des valeurs des colonnes
@@ -29,9 +29,10 @@ def mapper():
             prenom = row[idx_prenom].strip()
             nombre = int(row[idx_nombre].strip())
 
-            # Vérification des conditions : l'année ne doit pas être 'XXXX' ou vide, et les autres champs doivent être valides
+            # Vérification des conditions : l'année ne doit pas être 'XXXX' ou vide,
+            # et les autres champs doivent être valides
             if annee != 'XXXX' and annee and sexe and prenom:
-                # Émission d'une clé-valeur sous la forme "année_sexe_prénom\tvaleur"
+                # Émission d'une clé-valeur sous la forme "année_sexe_prénom    valeur"
                 print(f"{annee}_{sexe}_{prenom}\t{nombre}")
         except (IndexError, ValueError):
             # Ignorer les lignes mal formées ou contenant des erreurs de conversion
